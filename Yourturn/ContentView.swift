@@ -9,18 +9,35 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack{
+            Color(.white)
+                .ignoresSafeArea()
+            
+            VStack {
+                Spacer()
+                Image( "LogoNavyTeal")
+                    .resizable()
+                    .cornerRadius(20)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 150)
+            
+            
+                Image("Flashbase")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 1000.0)
+                    .scaleEffect(0.7)
+                    .foregroundColor(.accentColor)
+                    .padding(.bottom, -200) // Add padding to push the image up
+            }
         }
-        .padding()
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            
     }
 }
