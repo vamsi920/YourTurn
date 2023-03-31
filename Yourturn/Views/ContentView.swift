@@ -21,14 +21,14 @@ struct ContentView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 150)
             
-            
+            Spacer()
                 Image("Flashbase")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 1000.0)
+                    .frame(width: 900.0)
                     .scaleEffect(0.7)
                     .foregroundColor(.accentColor)
-                    .padding(.bottom, -200) // Add padding to push the image up
+                    .padding(.bottom, -200)  // Add padding to push the image up
             }
         }
     }
