@@ -6,32 +6,44 @@
 //
 
 import SwiftUI
+extension Color {
+    init(hex: String) {
+        let scanner = Scanner(string: hex)
+        var rgbValue: UInt64 = 0
+        scanner.scanHexInt64(&rgbValue)
+        
+        let red = Double((rgbValue & 0xFF0000) >> 16) / 255.0
+        let green = Double((rgbValue & 0x00FF00) >> 8) / 255.0
+        let blue = Double(rgbValue & 0x0000FF) / 255.0
+        
+        self.init(red: red, green: green, blue: blue)
+    }
+}
 
 struct ContentView: View {
-    var body: some View {
-        ZStack{
-            Color(.white)
-                .ignoresSafeArea()
-            
-            VStack {
-                Spacer()
-                Image( "LogoNavyTeal")
-                    .resizable()
-                    .cornerRadius(20)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 150)
-            
-            Spacer()
-                Image("Flashbase")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 900.0)
-                    .scaleEffect(0.7)
-                    .foregroundColor(.accentColor)
-                    .padding(.bottom, -200)  // Add padding to push the image up
+    @State private var isActive = false
+    @State private var showLogin = false
+    var body: some View{
+            ZStack {
+                // Replace SplashView with your own custom flash screen view
+                SplashView()
+                
+                    .edgesIgnoringSafeArea(.all)
+                    .opacity(self.isActive ? 0 : 1)
+                
+                if self.isActive {
+                    LoginView()
+                }
+            }
+//            .ignoresSafeArea()
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    withAnimation {
+                        self.isActive = true
+                    }
+                }
             }
         }
-    }
 }
 
 

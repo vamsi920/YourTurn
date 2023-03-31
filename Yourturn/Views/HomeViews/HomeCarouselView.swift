@@ -8,9 +8,24 @@
 import SwiftUI
 
 struct HomeCarouselView: View {
+    let colors: [Color] = [.red, .blue, .green, .orange, .purple]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 20) {
+                    ForEach(colors, id: \.self) { color in
+                        VStack {
+                            Rectangle()
+                                .fill(color)
+                                .shadow(radius: 5)
+                                .cornerRadius(30)
+                                .frame(width: 325, height: 645)
+                            Text(color.description)
+                        }
+                    }
+                }
+                .padding(20)
+            }
+        }
 }
 
 struct HomeCarouselView_Previews: PreviewProvider {

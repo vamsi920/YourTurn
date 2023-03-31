@@ -9,7 +9,28 @@ import SwiftUI
 
 struct SplashView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color(hex: "F3F3F3")
+                .ignoresSafeArea()
+            
+            VStack {
+                Spacer()
+                Image( "LogoNavyTeal")
+                    .resizable()
+                    .cornerRadius(20)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 150)
+            
+            Spacer()
+                Image("Flashbase")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 900.0)
+                    .scaleEffect(0.7)
+                    .foregroundColor(.accentColor)
+                    .padding(.bottom, -200)  // Add padding to push the image up
+            }
+        }
     }
 }
 
