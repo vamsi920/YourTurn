@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct HomeView: View { 
 //    let username: String
     var username: String  
     var body: some View {
@@ -23,11 +23,15 @@ struct HomeView: View {
                     Image(systemName: "house.lodge")
                     Text("Groups")
                 }
+//
                 AddNewView()
                 .tabItem{
                     Image(systemName: "plus.app")
                     Text("Add")
+
                 }
+                
+                                
                 ActivityView()
                 .tabItem{
                     Image(systemName: "list.bullet.clipboard")
