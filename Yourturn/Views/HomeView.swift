@@ -24,12 +24,12 @@ struct HomeView: View {
                     Text("Groups")
                 }
 //
-                AddNewView()
-                .tabItem{
-                    Image(systemName: "plus.app")
-                    Text("Add")
-
-                }
+//                AddNewView()
+//                .tabItem{
+//                    Image(systemName: "plus.app")
+//                    Text("Add")
+//
+//                }
                 
                                 
                 ActivityView()
@@ -44,19 +44,21 @@ struct HomeView: View {
                 }
                 
             }
+            .navigationViewStyle(StackNavigationViewStyle())
+
             .accentColor(Color(hex: "364F6B"))
-            .onAppear {
-                UITabBar.appearance().barTintColor = .black
-            }
+            .foregroundColor(Color(hex:"1E1E1E"))
+            
             
             .padding(.bottom, 0)
             .edgesIgnoringSafeArea(.all)
         }
-        
+        .navigationBarBackButtonHidden(true)
 //        .Color(color: "#000000")
           // 3
 //        Text("Helo \(username)" )
     }
+       
 }
 
 struct HomeView_Previews: PreviewProvider {

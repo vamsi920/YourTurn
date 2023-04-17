@@ -12,6 +12,7 @@ struct YourturnApp: App {
     var body: some Scene {
         WindowGroup {
             LoginView()
+                .navigationBarBackButtonHidden(true) 
         }
     }
 }

@@ -1,9 +1,9 @@
-//
-//  ActivityView.swift
-//  Yourturn
-//
-//  Created by Venkata Vamsi Devadula on 3/31/23.
-//
+// //
+// //  ActivityView.swift
+// //  Yourturn
+// //
+// //  Created by Venkata Vamsi Devadula on 3/31/23.
+// //
 
 import SwiftUI
 struct ActivityNode: Identifiable{
@@ -15,6 +15,7 @@ struct ActivityNode: Identifiable{
     var freq = String()
 }
 struct ActivityView: View {
+    @State private var sortby = "Day"
     @State private var activities = [
         ActivityNode(name: "Design Team", turnName: "Vamsi", turnGroup: "Design Team", turnTime: "10:00 AM", freq: "Daily"),
         ActivityNode(name: "Marketing Squad", turnName: "Vamsi", turnGroup: "Design Team", turnTime: "10:00 AM", freq: "Daily"),
@@ -30,22 +31,29 @@ struct ActivityView: View {
         ActivityNode(name: "Analytics Titans", turnName: "Vamsi", turnGroup: "Design Team", turnTime: "10:00 AM", freq: "Daily"),
         ActivityNode(name: "User Experience Masters", turnName: "Vamsi", turnGroup: "Design Team", turnTime: "10:00 AM", freq:"Daily"),
     ]
+    
     var body: some View {
         ZStack{
             Color(hex: "f3f3f3")
                 .ignoresSafeArea()
             VStack{
-                HStack{
-                    Text("Activity")
-                        .font(.title2)
-                        .foregroundColor(Color(hex: "333333"))
-                    Spacer()
-
+                VStack{
+                    HStack{
+                        Text("Activites")
+                            .font(.title2)
+                            .foregroundColor(Color(hex: "333333"))
+                        
+                        Spacer()
+                        
+                        
+                    }
+                    .padding(.horizontal, 10)
                 }
-                .padding(.horizontal, 50)
-                .padding(.top, 25)
-                List (activities, id:\.id){ item in 
-                HStack{
+                .padding(.top,25)
+                .padding(.horizontal, 20)
+                VStack{
+                    List(activities, id:\.id) { item in
+                        HStack{
                     Image(systemName: "circle.fill")
                         .foregroundColor(.pink)
                         .font(.system(size:50))
@@ -62,14 +70,14 @@ struct ActivityView: View {
                     .listRowBackground(Color.clear)
                 }
                     .listRowBackground(Color.clear)
-
-
+                        .listRowBackground(Color.clear)
+                    }
+                    .listStyle(PlainListStyle())
                 }
-                
+                .padding(.top,10)
+            }
         }
-        .padding(.top, 10)
     }
-}
 }
 
 struct ActivityView_Previews: PreviewProvider {
@@ -77,3 +85,37 @@ struct ActivityView_Previews: PreviewProvider {
         ActivityView()
     }
 }
+
+// import SwiftUI
+
+// struct ActivityView: View {
+    
+//     var body: some View {
+//         ZStack{
+//             Color(hex: "f3f3f3")
+//                 .ignoresSafeArea()
+//             VStack{
+//                 HStack{
+//                     Text("Activity")
+//                         .font(.title2)
+//                         .foregroundColor(Color(hex: "333333"))
+//                     Spacer()
+
+//                 }
+//                 .padding(.horizontal, 50)
+//                 .padding(.top, 25)
+//                 List (activities, id:\.id){ item in 
+                
+
+
+//                 }
+            
+                
+                
+//         }
+//         .padding(.top, 10)
+//     }
+// }
+// }
+
+
