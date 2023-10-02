@@ -94,25 +94,31 @@ struct GroupsView: View {
                 .padding(.top,25)
                 .padding(.horizontal, 20)
                 VStack{
-                    List(groups, id:\.id) { item in
-                        HStack{
-                            Image(systemName: "circle.fill")
-                                .foregroundColor(.pink)
-                                .font(.system(size:40))
-                            VStack(alignment: .leading, spacing: 5){
-                                Text(item.name)
-                                Text("You have {x} Tasks left")
-                                    .font(.system(size:12))
+                    List {
+                        ForEach(groups) { group in
+                            NavigationLink(destination: InGroupView(gName: group.name)) {
+                                HStack{
+                                    Image(systemName: "circle.fill")
+                                        .foregroundColor(.pink)
+                                        .font(.system(size:40))
+                                    VStack(alignment: .leading, spacing: 5){
+                                        Text(group.name)
+                                        Text("You have {x} Tasks left")
+                                            .font(.system(size:12))
+                                    }
+                                    Spacer()
+//                                    Image(systemName: "chevron.right")
+//                                        .foregroundColor(.gray)
+//                                        .font(.system(size:14))
+//                                        .padding()
+                                }
                             }
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.gray)
-                                .font(.system(size:14))
-                                .padding()
+                            .listRowBackground(Color.clear)
                         }
-                        .listRowBackground(Color.clear)
                     }
                     .listStyle(PlainListStyle())
+
+
                 }
                 .padding(.top,10)
             }
